@@ -11,6 +11,7 @@
 #import "NestViewController.h"
 #import "PushedViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "Helpshift.h"
 
 @interface RightViewController () <IIViewDeckControllerDelegate>
 
@@ -104,8 +105,11 @@
 }
 
 - (IBAction)presentModal:(id)sender {
-    IIViewDeckController* controller = [SharedAppDelegate generateControllerStack];
-    [self presentViewController:controller animated:YES completion:nil];
+    //IIViewDeckController* controller = [SharedAppDelegate generateControllerStack];
+    //[self presentViewController:controller animated:YES completion:nil];
+    
+    //Helpshift::call to show support [http://developers.helpshift.com/ios/support-tools/#full-support]
+    [[Helpshift sharedInstance] showSupport:self];
 }
 
 #pragma mark - view deck delegate

@@ -6,6 +6,7 @@
 
 #import "LeftViewController.h"
 #import "IIViewDeckController.h"
+#import "Helpshift.h"
 
 @implementation LeftViewController
 
@@ -119,6 +120,10 @@
         [self.viewDeckController toggleOpenView];
         return;
     }
+    
+    //Helpshift::call to show report an issue [http://developers.helpshift.com/ios/support-tools/#report-issue-view]
+    [[Helpshift sharedInstance] reportIssue:self];
+    return;
     
     [self.viewDeckController closeLeftViewBouncing:^(IIViewDeckController *controller) {
         if ([controller.centerController isKindOfClass:[UINavigationController class]]) {
